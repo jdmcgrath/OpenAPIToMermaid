@@ -11,6 +11,7 @@ This Go-based tool converts OpenAPI specifications into Mermaid diagrams, aiding
 Build a local version.
 
 ```sh
+go run ./get-version > .version
 cd cmd
 go build
 ```
