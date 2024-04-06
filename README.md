@@ -24,6 +24,15 @@ Use goreleaser to build the command line binary using goreleaser.
 goreleaser build --snapshot --clean
 ```
 
+### test
+
+Run Go tests.
+
+```sh
+go run ./get-version > .version
+go test ./...
+```
+
 ### lint
 
 ```sh
