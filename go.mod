@@ -1,6 +1,6 @@
 module github.com/jdmcgrath/OpenAPIToMermaid
 
-go 1.21.6
+go 1.22
 
 require github.com/getkin/kin-openapi v0.123.0
 

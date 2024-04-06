@@ -8,7 +8,7 @@ This Go-based tool converts OpenAPI specifications into Mermaid diagrams, aiding
 
 ### Prerequisites
 
-- Go 1.21+
+- Go 1.22+
 
 ### Installation
 
