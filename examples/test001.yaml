@@ -1,0 +1,42 @@
+openapi: 3.0.0
+components:
+  schemas:
+    TestRequestType:
+      properties:
+        IntField:
+          type: integer
+      required:
+      - IntField
+      type: object
+    TestResponseType:
+      description: TestResponseType description.
+      properties:
+        IntField:
+          description: IntField description.
+          type: integer
+      required:
+      - IntField
+      type: object
+info:
+  title: test001.yaml
+  version: 0.0.0
+paths:
+  /test:
+    post:
+      description: "Test request type description"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestRequestType'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestResponseType'
+          description: ""
+        default:
+          description: ""
+      tags:
+        - TestRequest

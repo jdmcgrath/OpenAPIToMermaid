@@ -1,0 +1,31 @@
+openapi: 3.0.0
+components:
+  schemas:
+    KnownTypes:
+      type: object
+      properties:
+        time:
+          type: string
+          format: date-time
+        timePtr:
+          type: string
+          format: date-time
+          nullable: true
+      required:
+      - time
+info:
+  title: known-types.yaml
+  version: 0.0.0
+paths:
+  /test:
+    get:
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnownTypes'
+        default:
+          description: ""
+

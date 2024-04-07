@@ -1,0 +1,48 @@
+openapi: 3.0.0
+components:
+  schemas:
+    WithNameStructTags:
+      type: object
+      properties:
+        firstName:
+          description: FirstName of something.
+          type: string
+        LastName:
+          description: LastName of something.
+          type: string
+        FullName:
+          description: |-
+            FullName of something.
+            Deprecated: Use FirstName and LastName
+          type: string
+        MiddleName:
+          description: |-
+            MiddleName of something. Deprecated: This deprecation flag is not valid so this field should
+            not be marked as deprecated.
+          type: string
+      required:
+      - firstName
+      - LastName
+      - FullName
+      - MiddleName
+info:
+  title: with-name-struct-tags.yaml
+  version: 0.0.0
+paths:
+  /test:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WithNameStructTags'
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WithNameStructTags'
+        default:
+          description: ""
+

@@ -1,0 +1,63 @@
+openapi: 3.0.0
+components:                            
+  schemas:
+    EmbeddedStructA:
+      type: object
+      properties:
+        A:
+          type: string
+      required:
+      - A
+    WithEmbeddedStructs:
+      type: object
+      properties:
+        A:
+          type: string
+        B:
+          type: string
+        OptionalB:
+          type: string
+        PointerB:
+          nullable: true
+          type: string
+        OptionalPointerB:
+          nullable: true
+          type: string
+        C:
+          type: string
+      required:
+      - A
+      - B
+      - C
+info:
+  title: embedded-structs.yaml
+  version: 0.0.0
+paths:
+  /embedded:
+    get:
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddedStructA'
+        default:
+          description: ""
+  /test:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WithEmbeddedStructs'
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WithEmbeddedStructs'
+        default:
+          description: ""
+

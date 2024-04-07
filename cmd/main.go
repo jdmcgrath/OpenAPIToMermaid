@@ -16,7 +16,7 @@ func main() {
 	}
 }
 
-const usageText = `Usage: openapi-to-mermaid <OpenAPI JSON file path>`
+const usageText = `Usage: openapi-to-mermaid <Diagram To Generate> <OpenAPI JSON file path>`
 
 func run(w io.Writer, args []string) (code int) {
 	if len(args) < 3 {
