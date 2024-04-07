@@ -2,7 +2,7 @@ module github.com/jdmcgrath/OpenAPIToMermaid
 
 go 1.22
 
-require github.com/getkin/kin-openapi v0.124.0
+require github.com/getkin/kin-openapi v0.123.0
 
 require (
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
