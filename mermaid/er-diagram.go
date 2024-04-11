@@ -44,7 +44,7 @@ func GenerateERDiagram(spec *openapi3.T) string {
 				refName := extractRefName(prop.Ref)
 				relationship := getRelationship(schema.Value.Required, propName, prop)
 				builder.WriteString(fmt.Sprintf("    %s %s %s : \"%s\"\n", name, relationship, refName, propName))
-			} else if prop.Value.Type == "array" && prop.Value.Items != nil && prop.Value.Items.Ref != "" {
+			} else if prop.Value.Type.Is(openapi3.TypeArray) && prop.Value.Items != nil && prop.Value.Items.Ref != "" {
 				refName := extractRefName(prop.Value.Items.Ref)
 				relationship := getRelationship(schema.Value.Required, propName, prop)
 				builder.WriteString(fmt.Sprintf("    %s %s %s : \"%s[]\"\n", name, relationship, refName, propName))

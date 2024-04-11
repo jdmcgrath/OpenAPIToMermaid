@@ -12,7 +12,7 @@ Build a local version.
 
 ```sh
 go run ./get-version > .version
-cd cmd
+cd cmd/o2m
 go build
 ```
 

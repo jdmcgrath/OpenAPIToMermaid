@@ -12,12 +12,7 @@ func sanitize(input string) string {
 }
 
 func getPropertyType(prop *openapi3.SchemaRef) string {
-	if prop.Ref != "" {
-		return "object"
-	} else if prop.Value.Type == "array" {
-		return "array"
-	}
-	return prop.Value.Type
+	return strings.Join(*prop.Value.Type, ", ")
 }
 
 func extractRefName(ref string) string {
@@ -29,7 +24,7 @@ func extractRefName(ref string) string {
 func getRelationship(requiredFields []string, propName string, prop *openapi3.SchemaRef) string {
 	// Determine cardinality based on whether the property is an array and if it's required
 	isRequired := stringInSlice(propName, requiredFields)
-	if prop.Value.Type == "array" {
+	if prop.Value.Type.Is(openapi3.TypeArray) {
 		if isRequired {
 			return "}o --o{" // One or more
 		}
